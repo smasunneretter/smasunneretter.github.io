@@ -5,7 +5,7 @@
     <title>Små sunne retter</title>
     <style media="screen">
       body{
-        background-image: url(bakgrunn.jpg);
+        background-image: url(media/bakgrunn.jpg);
         background-color: #336f25;
         background-position: fixed;
       }
@@ -45,7 +45,7 @@
         background-color: #336f25;
         margin-left: 5%;
         width: 85%;
-        margin-top: 2.5%;
+        margin-top: 0.5%;
         padding: 2.5%;
         text-align: left;
         font-family: verdana;
@@ -78,7 +78,7 @@
         background-color: #ef0000;
       }
       .forslagPaRett{
-        border: 5px solid #b1b3b0;
+        border: 5px solid #31a331;
         background-color: #b1b3b0;
         margin-left: 5%;
         width: 85%;
@@ -101,7 +101,7 @@
   </head>
   <body>
     <div class="innpakning">
-      <a href="https://smasunneretter.github.io/"><h1>SMÅ SUNNE RETTER</h1></a>
+      <a href="index.html"><h1>SMÅ SUNNE RETTER</h1></a>
       <!-- <div id="logo"></div> -->
 
       <div class="info">
@@ -183,14 +183,15 @@
         if (riktig === "rett") {
           dineMatvarerEl.innerHTML = "<p class='underoverskrifter'>Dine matvarer:</p>";
           for (var i = 0; i < tilgjengeligeMatvarer.length; i++) {
-            var nyMatvare = document.createElement("p");
-            nyMatvare.innerHTML = tilgjengeligeMatvarer[i];
             var fjernMatvareKnappEl = document.createElement("button");
             fjernMatvareKnappEl.setAttribute("class", "fjernMatvareKnapp");
             fjernMatvareKnappEl.setAttribute("id", tilgjengeligeMatvarer[i]);
             fjernMatvareKnappEl.innerHTML = "X";
             fjernMatvareKnappEl.addEventListener("click", fjernMatvarerFraListe);
-            nyMatvare.appendChild(fjernMatvareKnappEl);
+            dineMatvarerEl.appendChild(fjernMatvareKnappEl);
+            var nyMatvare = document.createElement("p");
+            nyMatvare.style.display = "inline";
+            nyMatvare.innerHTML = tilgjengeligeMatvarer[i] + "<br>";
             dineMatvarerEl.appendChild(nyMatvare);
           }
           var mellomRomTilKnapp = document.createElement("p");
