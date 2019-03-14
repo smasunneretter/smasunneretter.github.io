@@ -1,4 +1,4 @@
-var matvarer = ["Egg", "Pasta", "Kylling", "Bacon", "Løk", "Margarin", "Nudler", "Skinke", "Grønnsaker", "Ost", "Frukt", "Agurk", "Gulrot"];
+var matvarer = ["Egg", "Pasta", "Kylling", "Bacon", "Løk", "Margarin", "Nudler", "Skinke", "Oppskårede grønnsaker", "Ost", "Frukt", "Agurk", "Gulrot"];
 matvarer.sort();
 
 var tilgjengeligeMatvarer = [];
@@ -86,14 +86,15 @@ function fjernMatvarerFraListe(e) {
   }
   dineMatvarerEl.innerHTML = "<p class='underoverskrifter'>Dine matvarer:</p>";
   for (var i = 0; i < tilgjengeligeMatvarer.length; i++) {
-    var nyMatvare = document.createElement("p");
-    nyMatvare.innerHTML = tilgjengeligeMatvarer[i];
     var fjernMatvareKnappEl = document.createElement("button");
     fjernMatvareKnappEl.setAttribute("class", "fjernMatvareKnapp");
     fjernMatvareKnappEl.setAttribute("id", tilgjengeligeMatvarer[i]);
     fjernMatvareKnappEl.innerHTML = "X";
     fjernMatvareKnappEl.addEventListener("click", fjernMatvarerFraListe);
-    nyMatvare.appendChild(fjernMatvareKnappEl);
+    dineMatvarerEl.appendChild(fjernMatvareKnappEl);
+    var nyMatvare = document.createElement("p");
+    nyMatvare.style.display = "inline";
+    nyMatvare.innerHTML = tilgjengeligeMatvarer[i] + "<br>";
     dineMatvarerEl.appendChild(nyMatvare);
   }
   var mellomRomTilKnapp = document.createElement("p");
@@ -107,18 +108,18 @@ function fjernMatvarerFraListe(e) {
 var programmetsRetter = [
   {
     navnPaRett: "Eggerøre",
-    ingredienser: ["Egg"],
+    ingredienser: [["Egg", "(3 egg)"]],
     oppskrift: "<ol> <li>Knekk egg opp i en gryte, og varm opp på medium varme mens du rører rundt med en slikkepott.</li><li>Rør hele tiden. Steker eggene for fort, så skru ned varmen på plata. Det hele skal ta 2-3 minutter.</li><li>Når eggerøren tykner, tas kjelen av varmen. Du kan gjerne blande inn hakket gressløk til slutt hvis du har det tilgjengelig. Serveres gjerne på brødskive, men smaker også godt rett fra pannen.</li></ol>"
   },
   {
     navnPaRett: "Omelett",
-    ingredienser: ["Egg", "Margarin", "Løk"],
-    oppskrift: "<ol><li>Visp sammen egg (2 stk) og vann (2 ss).</li><li>Smelt 1 ss margarin på stekeplaten, margarinen skal frese når den slippes i. Hell i røren og trekk den inn mot midten av platen etter hvert som røren stivner.</li><li>Legg den finhakkede løken (mengde løk avhenger av hva en selv ønsker) på den ene halvparten når røren nesten er stivnet.</li><li>La så omeletten steke noen sekunder før den andre halvparten brettes over, så er det bare å hive innpå.</li></ol>"
+    ingredienser: [["Egg", "(2 stk)"], ["Margarin", "(1 ss)"], ["Løk", "(200 g)"]],
+    oppskrift: "<ol><li>Visp sammen egg og vann (2 ss).</li><li>Smelt margarin på stekeplaten, margarinen skal frese når den slippes i. Hell i røren og trekk den inn mot midten av platen etter hvert som røren stivner.</li><li>Legg den finhakkede løken på den ene halvparten når røren nesten er stivnet.</li><li>La så omeletten steke noen sekunder før den andre halvparten brettes over, så er det bare å hive innpå.</li></ol>"
   },
   {
     navnPaRett: "Stekte nudler",
-    ingredienser: ["Egg", "Margarin", "Grønnsaker", "Skinke", "Nudler"],
-    oppskrift: "<ol><li>Kok opp nudlene (Mengden velger du selv).</li><li>Stek 200-300 g oppskåret skinke i en middels mengde margarin.</li><li>Ha i utvalgte oppskårede grønnsaker og stek så videre i noen minutter. Husk å vende blandingen underveis.</li><li>Rør så inn de ferdig kokte nudlene.</li><li>Lag et hull i midten av panna og knekk 2 egg oppi. Rør rundt til eggene ser ut som ferdig eggerøre. Vend det så inn i nudelblandingen. Velbekomme!</li></ol>"
+    ingredienser: [["Egg", "(2 egg)"], ["Margarin", "(2 ss)"], ["Oppskårede grønnsaker", "(300-400 g)"], ["Skinke", "(200-300 g)"], ["Nudler", "(300 g)"]],
+    oppskrift: "<ol><li>Kok opp nudlene.</li><li>Stek den oppskårede skinken i en middels mengde margarin.</li><li>Ha i utvalgte oppskårede Oppskårede grønnsaker og stek så videre i noen minutter. Husk å vende blandingen underveis.</li><li>Rør så inn de ferdig kokte nudlene.</li><li>Lag et hull i midten av panna og knekk eggene oppi. Rør rundt til eggene ser ut som ferdig eggerøre. Vend det så inn i nudelblandingen. Velbekomme!</li></ol>"
   }
 ];
 
@@ -129,7 +130,7 @@ function finnRett() {
     var antallKorrekteMatvarer = 0;
     for (var j = 0; j < programmetsRetter[i].ingredienser.length; j++) {
       for (var k = 0; k < tilgjengeligeMatvarer.length; k++) {
-        if (tilgjengeligeMatvarer[k] === programmetsRetter[i].ingredienser[j]) {
+        if (tilgjengeligeMatvarer[k] === programmetsRetter[i].ingredienser[j][0]) {
           antallKorrekteMatvarer++;
         }
       }
@@ -145,7 +146,7 @@ function finnRett() {
       nyDiv.appendChild(overskriftRettEl);
       nyDiv.innerHTML += "<ul>";
       for (var j = 0; j < programmetsRetter[i].ingredienser.length; j++) {
-        nyDiv.innerHTML += "<li>" + programmetsRetter[i].ingredienser[j] + "</li>";
+        nyDiv.innerHTML += "<li>" + programmetsRetter[i].ingredienser[j][0] + " " + programmetsRetter[i].ingredienser[j][1] + "</li>";
       }
       nyDiv.innerHTML += "</ul>";
       nyDiv.innerHTML += programmetsRetter[i].oppskrift;
