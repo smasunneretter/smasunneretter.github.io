@@ -1,0 +1,152 @@
+body{
+  background-image: url(media/bakgrunn.jpg);
+  background-color: #336f25;
+  background-position: fixed;
+}
+
+.moderFlex{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.logo{
+  background-color: #b1b3b0;
+  background-image: url(media/logo.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  flex-grow: 1;
+  height: 130px;
+  width: 130px;
+  color: #31a331;
+}
+.logo:hover, .logo:active{
+  background-color: #310000;
+}
+
+.overskrift{
+  flex-grow: 3;
+  background-color: #336f25;
+  text-align: center;
+  height: 130px;
+  text-decoration: none;
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 300%;
+  color: #31a331;
+}
+.overskrift:hover, .overskrift:active{
+  background-color: #b1b3b0;
+}
+
+.miniMeny{
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  background-color: #b1b3b0;
+  display: inline-block;
+  text-align: center;
+  height: 130px;
+}
+
+.overFlex{
+  height: 80px;
+  background-color: #b1b3b0;
+  display: flex;
+}
+
+.sosialeMedier:hover{
+  background-color: #310000;
+}
+
+.underFlex{
+  height: 50px;
+  background-color: #336f25;
+  display: flex;
+}
+
+.rute{
+  flex-grow: 1;
+  text-align: center;
+  font-family: verdana;
+  font-size: 150%;
+  color: #31a331;
+  text-decoration: none;
+}
+
+.rute:hover, .rute:hover{
+    background-color: #310000;
+}
+
+.info{
+  display: inline-block;
+  border: 5px solid #b1b3b0;
+  box-sizing: border-box;
+  background-color: #336f25;
+  margin-left: 20%;
+  width: 60%;
+  margin-top: 0.5%;
+  padding: 2.5%;
+  text-align: left;
+  font-family: verdana;
+  font-size: 120%;
+  color: #101010;
+}
+.underoverskrifter{
+  text-align: left;
+  font-family: verdana;
+  font-size: 200%;
+  color: #31a331;
+}
+
+select{
+  font-family: verdana;
+}
+
+button{
+  margin-left: 10px;
+  padding: 10px;
+  color: #ffffff;
+  text-shadow: 0 -1px -1px #335166;
+  border: 1px solid #a2a2a2;
+  border-radius: 4px;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+  outline: none;
+  cursor: pointer;
+  background-color: #31a331;
+}
+button:active{
+  transform: translate(2px, 2px);
+}
+.fjernMatvareKnapp{
+  background-color: #ef0000;
+  margin-top: 10px;
+}
+.forslagPaRett{
+  border: 5px solid #31a331;
+  background-color: #b1b3b0;
+  margin-left: 5%;
+  width: 85%;
+  margin-top: 2.5%;
+  padding: 2.5%;
+  text-align: left;
+  font-family: verdana;
+  font-size: 120%;
+  color: #101010;
+}
+.overskriftRett{
+  margin-top: 0%;
+  margin-bottom: 0%;
+  text-align: center;
+  font-family: verdana;
+  font-size: 200%;
+  color: #31a331;
+}
+.rettBilde{
+  box-sizing: border-box;
+  border: 5px solid #31a331;
+  margin-left: 10%;
+  margin-top: 5%;
+  width: 80%;
+}
