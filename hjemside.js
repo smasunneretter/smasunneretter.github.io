@@ -9,10 +9,11 @@ var dineMatvarerEl = document.querySelector("#dineMatvarer");
 
 for (var i = 0; i < matvarer.length; i++) {
   var valgMatvare = document.createElement("option");
-  valgMatvare.value = matvarer[i];
   valgMatvare.innerHTML = matvarer[i];
   muligeMatvarerEl.appendChild(valgMatvare);
 }
+
+muligeMatvarerEl.value = "";
 
 var leggTilMatvareKnappEl = document.querySelector("#leggTilMatvareKnapp");
 leggTilMatvareKnappEl.addEventListener("click", leggMatvareTilListe);
